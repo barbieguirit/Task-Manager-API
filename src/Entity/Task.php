@@ -49,6 +49,14 @@ class Task
     #[Groups(['task:read', 'task:write'])]
     private ?string $description = null;
 
+    #[ORM\Column(length: 50, nullable: true)]
+    #[Groups(['task:read', 'task:write'])]
+    private ?string $context = null;
+
+    #[ORM\Column(length: 50)]
+    #[Groups(['task:read', 'task:write'])]
+    private string $status = 'todo';
+
     #[ORM\Column]
     #[Groups(['task:read', 'task:write'])]
     private bool $isCompleted = false;
@@ -61,6 +69,7 @@ class Task
     {
         $this->createdAt = new \DateTimeImmutable();
         $this->isCompleted = false;
+        $this->status = 'todo';
     }
 
     public function getId(): ?int
@@ -87,6 +96,28 @@ class Task
     public function setDescription(?string $description): static
     {
         $this->description = $description;
+        return $this;
+    }
+
+    public function getContext(): ?string
+    {
+        return $this->context;
+    }
+
+    public function setContext(?string $context): static
+    {
+        $this->context = $context;
+        return $this;
+    }
+
+    public function getStatus(): string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): static
+    {
+        $this->status = $status;
         return $this;
     }
 

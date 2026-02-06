@@ -1,15 +1,16 @@
 services:
   app:
-    image: php:8.2-cli
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: task_manager_api_app
     working_dir: /var/www/html
     volumes:
       - .:/var/www/html
     ports:
-      - "8000:8000"
+      - "8000:80"
     depends_on:
       - mysql
-    command: php -S 0.0.0.0:8000 -t public
     networks:
       - task_manager_api_network
 
