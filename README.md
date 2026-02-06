@@ -32,7 +32,7 @@ docker-compose up -d
 ```
 
 This will start:
-- **PHP App**: http://localhost:8007
+- **PHP App**: http://localhost:8000
 - **MySQL Database**: localhost:3311
 
 ### 4. Run Database Migrations
@@ -50,8 +50,8 @@ php bin/console doctrine:migrations:migrate
 ### 5. Verify Installation
 
 Visit the endpoints:
-- API Documentation: http://localhost:8007/api
-- Get All Tasks: http://localhost:8007/api/tasks
+- API Documentation: http://localhost:8000/api
+- Get All Tasks: http://localhost:8000/api/tasks
 
 ## API Endpoints
 
@@ -70,33 +70,33 @@ Visit the endpoints:
 
 **Create a Task (POST)**
 ```bash
-curl -X POST http://localhost:8007/api/tasks \
+curl -X POST http://localhost:8000/api/tasks \
   -H "Content-Type: application/json" \
   -d '{"title": "Buy groceries", "description": "Milk, eggs, bread"}'
 ```
 
 **Get All Tasks (GET)**
 ```bash
-curl http://localhost:8007/api/tasks
+curl http://localhost:8000/api/tasks
 ```
 
 **Mark Task as Completed (PATCH)**
 ```bash
-curl -X PATCH http://localhost:8007/api/tasks/1 \
+curl -X PATCH http://localhost:8000/api/tasks/1 \
   -H "Content-Type: application/json" \
   -d '{"isCompleted": true}'
 ```
 
 **Update Task (PUT)**
 ```bash
-curl -X PUT http://localhost:8007/api/tasks/1 \
+curl -X PUT http://localhost:8000/api/tasks/1 \
   -H "Content-Type: application/json" \
   -d '{"title": "Buy groceries", "description": "Updated list", "isCompleted": false}'
 ```
 
 **Delete Task (DELETE)**
 ```bash
-curl -X DELETE http://localhost:8007/api/tasks/1
+curl -X DELETE http://localhost:8000/api/tasks/1
 ```
 
 ## Task Entity

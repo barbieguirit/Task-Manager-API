@@ -13,22 +13,22 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-         $product = new Product();
+         $Task = new Task();
 
-            $product->setTitle('First Task');
-            $product->setDescription('This is the description of the first task.');
-            $product->setIsCompleted(false);
-            $product->setCreatedAt(new \DateTimeImmutable());
+            $Task->setTitle('First Task');
+            $Task->setDescription('This is the description of the first task.');
+            $Task->setIsCompleted(false);
+            $Task->setCreatedAt(new \DateTimeImmutable());
             
-            $manager->persist($product);
+            $manager->persist($Task);
 
-            $product = new Product();   
-            $product->setTitle('Second Task');
-            $product->setDescription('This is the description of the second task.');
-            $product->setIsCompleted(true);
-            $product->setCreatedAt(new \DateTimeImmutable());
+            $Task = new Task();   
+            $Task->setTitle('Second Task');
+            $Task->setDescription('This is the description of the second task.');
+            $Task->setIsCompleted(true);
+            $Task->setCreatedAt(new \DateTimeImmutable());
            
-            $manager->persist($product);
+            $manager->persist($Task);
 
         $manager->flush();
     }
